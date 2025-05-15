@@ -6,6 +6,7 @@
 # 1. ライブラリの読み込み
 ############################################################
 import streamlit as st
+import openai
 import os
 
 # Streamlit Secrets から API キーを取得して環境変数としてセット
