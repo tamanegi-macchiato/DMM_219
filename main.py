@@ -11,6 +11,14 @@ import os
 # Streamlit Secrets から API キーを取得して環境変数としてセット
 os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
 
+try:
+    openai.api_key = st.secrets["OPENAI_API_KEY"]
+except KeyError:
+    st.error("OPENAI_API_KEY が st.secrets に設定されていません。Streamlit Cloud の Secrets に追加してください。")
+except Exception as e:
+    st.error(f"APIキー設定中に予期しないエラーが発生しました: {e}")
+    st.text(traceback.format_exc())
+
 
 # ログ出力を行うためのモジュール
 import logging
