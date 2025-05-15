@@ -7,6 +7,7 @@
 ############################################################
 import streamlit as st
 import openai
+import traceback
 import os
 
 # Streamlit Secrets から API キーを取得して環境変数としてセット
